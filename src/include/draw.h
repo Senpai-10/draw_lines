@@ -1,0 +1,1 @@
+void draw(Display *display, Window window);
