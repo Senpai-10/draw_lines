@@ -7,7 +7,6 @@
 #include "draw.h"
 #include "close.h"
 
-void close();
 void clear_screen();
 unsigned long RGB(int r, int g, int b);
 
@@ -25,6 +24,10 @@ struct coord
 void init() 
 {
   dot.x=100; dot.y=100;
+  int height = 300;
+  int width = 300;
+  const char * window_name = "draw";
+  const char * window_icon_name = "icon";
 
   display=XOpenDisplay((char *)0);
   screen=DefaultScreen(display);
@@ -32,12 +35,6 @@ void init()
   white=WhitePixel(display, screen);
   red=RGB(255,0,0);
   blue=RGB(0,0,255);
-
-  int height = 300;
-  int width = 300;
-  
-  const char * window_name = "draw";
-  const char * window_icon_name = "icon";
 
   struct Window_Colors
   {
