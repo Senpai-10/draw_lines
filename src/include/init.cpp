@@ -4,8 +4,10 @@
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
 
+#include "draw.h"
+#include "close.h"
+
 void close();
-void draw();
 void clear_screen();
 unsigned long RGB(int r, int g, int b);
 
@@ -63,7 +65,7 @@ void init()
   {
     XNextEvent(display, &event);
     if (event.type==Expose && event.xexpose.count==0) {
-      draw();
+      draw(display, window);
     }
 
     if (event.type==KeyPress && XLookupString(&event.xkey, text, 255, &key, 0)==1) {
@@ -71,9 +73,10 @@ void init()
         clear_screen();
       }
       if (text[0] == 'q') {
-        close();
+        close_window(display, window, gc);
       }
     } 
+
     if (event.type==ButtonPress) {
       int x = event.xbutton.x, y = event.xbutton.y;
 
@@ -89,18 +92,8 @@ void init()
   }
 }
 
-void close() 
-{
-  XFreeGC(display, gc);
-  XDestroyWindow(display, window);
-  XCloseDisplay(display);
-  exit(0);
-}
 
-void draw()
-{
-  XClearWindow(display, window);
-}
+
 
 void clear_screen() 
 {
