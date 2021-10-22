@@ -23,7 +23,7 @@ struct coord
 
 void init() 
 {
-  dot.x=100; dot.y=100;
+  dot.x=0; dot.y=0;
   int height = 300;
   int width = 300;
   const char * window_name = "draw";
@@ -75,13 +75,16 @@ void init()
     if (event.type==ButtonPress) {
       int x = event.xbutton.x, y = event.xbutton.y;
 
-      XSetForeground(display, gc, red);
-      XDrawLine(display, window, gc, dot.x, dot.y, x, y);
-      
-      // XSetForeground(display, gc, white);
-      // strcpy(text, " ");
-      // XDrawString(display, window, gc, x, y, text, strlen(text));
+      if (dot.x != 0 && dot.y != 0) 
+      {
+        XSetForeground(display, gc, red);
+        XDrawLine(display, window, gc, dot.x, dot.y, x, y);
 
+        // XSetForeground(display, gc, white);
+        // strcpy(text, " ");
+        // XDrawString(display, window, gc, x, y, text, strlen(text));
+      }
+      
       dot.x=x; dot.y=y;
     }
   }
@@ -90,7 +93,7 @@ void init()
 void clear_screen() 
 {
   XClearWindow(display, window);
-  dot.x = 100; dot.y = 100;
+  dot.x = 0; dot.y = 0;
 }
 
 unsigned long RGB(int r, int g, int b) 
