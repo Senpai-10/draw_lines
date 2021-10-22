@@ -87,9 +87,6 @@ void init()
   }
 }
 
-
-
-
 void clear_screen() 
 {
   XClearWindow(display, window);
