@@ -27,6 +27,7 @@
 *.lib
 
 # Executables
+draw_lines
 *.exe
 *.out
 *.app
