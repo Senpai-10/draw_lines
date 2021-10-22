@@ -6,6 +6,7 @@
 
 #include "draw.h"
 #include "close.h"
+#include "create_window.h" 
 
 void close();
 void clear_screen();
