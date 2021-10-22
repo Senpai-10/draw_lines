@@ -1,0 +1,1 @@
+void close_window(Display *display, Window window, GC gc);
