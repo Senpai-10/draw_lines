@@ -6,7 +6,6 @@
 
 #include "draw.h"
 #include "close.h"
-#include "create_window.h" 
 
 void close();
 void clear_screen();
@@ -56,8 +55,6 @@ void init()
   XClearWindow(display, window);
   XMapRaised(display, window);
 
-
-  
   XEvent event;
   KeySym key;
   char text[255];
