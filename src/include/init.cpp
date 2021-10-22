@@ -36,7 +36,7 @@ void init()
   int height = 300;
   int width = 300;
   
-  const char * window_name = "x11";
+  const char * window_name = "draw";
   const char * window_icon_name = "icon";
 
   struct Window_Colors
