@@ -83,6 +83,12 @@ void init()
         // XSetForeground(display, gc, white);
         // strcpy(text, " ");
         // XDrawString(display, window, gc, x, y, text, strlen(text));
+      } else {
+        /*
+          Draw a dot to show the user where is the starting point
+        */ 
+        XSetForeground(display, gc, red);
+        XDrawLine(display, window, gc, x, y, x, y);
       }
       
       dot.x=x; dot.y=y;
