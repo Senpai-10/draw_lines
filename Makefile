@@ -6,7 +6,7 @@ help:
 	@echo "build"
 	@echo "install"
 build:
-	g++ src/*.cpp src/include/*.cpp -lX11 -o ${EXE_NAME}
+	g++ src/main.cpp src/include/*.cpp -lX11 -o ${EXE_NAME}
 install:
 	mv ${EXE_NAME} /usr/bin
 
