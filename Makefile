@@ -9,3 +9,7 @@ build:
 	g++ src/*.cpp src/include/*.cpp -lX11 -o ${EXE_NAME}
 install:
 	mv ${EXE_NAME} /usr/bin
+
+# build and run
+run: build
+	./${EXE_NAME}
