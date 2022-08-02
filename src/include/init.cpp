@@ -4,7 +4,6 @@
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
 
-#include "draw.h"
 #include "close.h"
 
 void clear_screen();
@@ -60,7 +59,7 @@ void init()
   {
     XNextEvent(display, &event);
     if (event.type==Expose && event.xexpose.count==0) {
-      draw(display, window);
+      XClearWindow(display, window);
     }
 
     if (event.type==KeyPress && XLookupString(&event.xkey, text, 255, &key, 0)==1) {
